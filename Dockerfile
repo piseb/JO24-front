@@ -2,8 +2,7 @@
 FROM node:22.9-alpine AS app
 WORKDIR /app
 COPY . /app
-RUN npm install && npm run build
-
+RUN npm install && npm run aws
 # PHASE 2
 FROM nginx:alpine
 COPY --from=app /app/dist/jo24-front/browser /usr/share/nginx/html
