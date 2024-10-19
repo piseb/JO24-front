@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px;
+}
+
+.titre {
+  padding: 7px;
+  font-family: Paris2024-Variable, sans-serif;
+  font-size: 22px;
+}
+
+.img {
+  width: 100%;
+}
+
+.menu {
+  display: none;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 1000px) {
+  .menu {
+    display: flex;
+  }
+}
+
+.menu-item {
+  margin: 0 5px;
+}
+
+.burger {
+  margin-right: 71.45px;
+}

@@ -1,0 +1,20 @@
+<div class="container">
+  <button mat-icon-button class="burger" (click)="openBurgerClick()">
+    <mat-icon svgIcon="burgerjo" aria-hidden="false" aria-label="Burger JO"></mat-icon>
+  </button>
+
+  <menu class="menu">
+    @for (link of links; track link.url) {
+    <a class="menu-item" mat-raised-button routerLink="{{link.url}}" routerLinkActive #rla="routerLinkActive"
+      [disabled]="rla.isActive">{{link.nom}}</a>
+    }
+  </menu>
+
+  <div class="titre Paris2024-font">
+    Paris 2024
+  </div>
+</div>
+
+<img
+  srcset="/img/header/400.jpg 400w, /img/header/800.jpg 800w, /img/header/1200.jpg 1200w, /img/header/2k.jpg 2000w, /img/header/4k.jpg 4000w"
+  src="/img/header/1200.jpg" alt="JO Rings" />

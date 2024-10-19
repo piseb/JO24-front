@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.pages {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.Paris2024-font {
+  font-family: Paris2024-variable, sans-serif;
+}

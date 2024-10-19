@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.Paris2024-font {
+  @font-face {
+    font-family: "Paris2024-Variable";
+    src: url("/font/Paris2024-Variable.ttf") format("ttf");
+  }
+}
