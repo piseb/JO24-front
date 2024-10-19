@@ -1,0 +1,13 @@
+<header class="container">
+  <button mat-mini-fab aria-label="button with a delete icon">
+    <mat-icon aria-hidden="false" aria-label="close page burger" fontIcon="close" (click)="closeBurgerClick()"
+      (keydown)="closeBurgerClick()"></mat-icon>
+  </button>
+</header>
+
+<mat-nav-list>
+  @for (link of links; track link) {
+  <a mat-list-item routerLink="{{link.url}}" (click)="closeBurgerClick()" routerLinkActive #rla="routerLinkActive"
+    [disabled]="rla.isActive">{{link.nom}}</a>
+  }
+</mat-nav-list>
