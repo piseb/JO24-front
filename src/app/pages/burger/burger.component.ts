@@ -14,8 +14,8 @@ import { NavigationService } from '../../core/services/navigation/navigation.ser
 })
 export class BurgerComponent {
   links = inject(NavigationService).getAll();
-
   @Output() closeBurgerButtonClick = new EventEmitter()
+
   closeBurgerClick() {
     this.closeBurgerButtonClick.emit();
   }
