@@ -20,7 +20,7 @@ jobs:
           if [ -f package.json ]; then npm install ; fi
       - name: Generate tests
         run: |
-          ng test --no-watch --browsers=ChromeHeadless
+          ng test --no-watch --no-progress --browsers=ChromeHeadless
       - name: Generate coverage
         run: |
-          ng test --no-watch --code-coverage
+          ng test --no-watch --no-progress --code-coverage --browsers=ChromeHeadless
