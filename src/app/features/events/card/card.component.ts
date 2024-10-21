@@ -12,7 +12,6 @@ import { IDiscipline } from '../../../core/interfaces/discipline.interface';
 })
 export class CardComponent {
   @Input() event = {} as IEvent;
-  @Input() discipline = {} as IDiscipline;
   @Input() child = {} as number;
 
   bgColor() {
