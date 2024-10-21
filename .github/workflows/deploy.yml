@@ -1,20 +1,19 @@
 # This workflow will build and push a new container image to Amazon ECR,
-# and then will deploy a new task definition to Amazon ECS, when there is a push to the "main" branch.
+# and then will deploy a new task definition to Amazon ECS.
 
 name: Deploy to Amazon ECS
 
 on:
-  push:
-    branches: [ "dev" ]
+  workflow_call:
 
 env:
   # settings:
-    AWS_REGION: eu-west-3
-    ECR_REPOSITORY: jo24-front-dev-repo
-    ECS_CLUSTER: jo24-dev-cluster
-    ECS_SERVICE: jo24-front-dev-service
-    ECS_TASK_DEFINITION: .aws/task-definition.json
-    CONTAINER_NAME: jo24-front-dev-container
+    AWS_REGION: ${{ secrets.AWS_REGION }}
+    ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
+    ECS_CLUSTER: ${{ secrets.ECS_CLUSTER }}
+    ECS_SERVICE: ${{ secrets.ECS_SERVICE }}
+    ECS_TASK_DEFINITION: ${{ secrets.ECS_TASK_DEFINITION }}
+    CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
 
 permissions:
   contents: read
@@ -47,9 +46,6 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: jo24.front.${{ github.sha }}
       run: |
-        # Build a docker container and
-        # push it to ECR so that it can
-        # be deployed to ECS.
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
