@@ -8,13 +8,15 @@ on:
 jobs:
   tests-coverage:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: node:22.9-alpine
     steps:
       - uses: actions/checkout@v3
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.9.0'
       - name: Install dependencies
         run: |
+          npm install -g @angular/cli
           if [ -f package.json ]; then npm install ; fi
       - name: Generate tests
         run: |
