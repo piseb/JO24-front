@@ -10,6 +10,10 @@ export class NavigationService {
         nom: "Accueil",
         url: "home"
       },
+      {
+        nom: "Évènements",
+        url: "events"
+      },
     ];
   }
 }
