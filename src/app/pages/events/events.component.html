@@ -1,6 +1,6 @@
 <div class="cards">
-  @for (event of events() ; track event.id) {
-  <app-events-card [event]="event" [discipline]="event.discipline$()" [child]="$index"></app-events-card>
+  @for (event of events() ; track event.uuid) {
+  <app-events-card [event]="event" [child]="$index"></app-events-card>
   }
   @empty {
   <p>Aucun évènement trouvé.</p>

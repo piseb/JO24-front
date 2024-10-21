@@ -1,4 +1,4 @@
 export interface IDiscipline {
-  id: string;
+  uuid: string;
   name: string;
 }
