@@ -1,7 +1,9 @@
 <mat-card class="card" appearance="outlined" [style.background-color]="bgColor()">
   <mat-card-header>
     <mat-card-title>{{event.title}}</mat-card-title>
+    @if (event.discipline) {
     <mat-card-subtitle>{{event.discipline.name}}</mat-card-subtitle>
+    }
   </mat-card-header>
   <mat-card-content>
     @if (event.begin_at != event.end_at){
