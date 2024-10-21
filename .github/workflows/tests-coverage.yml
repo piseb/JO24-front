@@ -1,0 +1,24 @@
+# This workflow build a postgres, run the tests and generate a coverage report.
+
+name: Run Unit Test via ng test
+
+on:
+  workflow_call:
+
+jobs:
+  tests-coverage:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: node:22.9-alpine
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          if [ -f package.json ]; then npm install ; fi
+      - name: Generate tests
+        run: |
+          ng test --no-watch --browsers=ChromeHeadless
+      - name: Generate coverage
+        run: |
+          ng test --no-watch --code-coverage
