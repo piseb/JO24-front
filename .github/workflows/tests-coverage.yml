@@ -1,12 +1,16 @@
 # This workflow build a postgres, run the tests and generate a coverage report.
 
-name: Run Unit Test via ng test
+name: Run Unit Test via ng test and Report Coverage
 
 on:
-  workflow_call:
+  push:
+    branches:
+      - dev
+      - 'feature/*'
 
 jobs:
   tests-coverage:
+    name: Test & Coverage report
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
