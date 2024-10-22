@@ -1,0 +1,8 @@
+<div class="cards">
+  @for (offer of offers() ; track offer.uuid) {
+  <app-offers-card [offer]="offer" [child]="$index"></app-offers-card>
+  }
+  @empty {
+  <p>Aucune offre trouvée.</p>
+  }
+</div>

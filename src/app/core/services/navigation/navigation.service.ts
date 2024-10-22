@@ -14,6 +14,10 @@ export class NavigationService {
         nom: "Évènements",
         url: "events"
       },
+      {
+        nom: "Les Offres",
+        url: "offers"
+      },
     ];
   }
 }
