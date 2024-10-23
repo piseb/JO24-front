@@ -5,4 +5,5 @@ export interface IOffer {
   price: number;
   ntickets: number;
   disable: boolean;
+  count?: number;
 }

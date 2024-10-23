@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { OffersService } from '../../core/services/offers/offers.service';
 import { CardComponent } from '../../features/offers/card/card.component';
+import { CartComponent } from '../../features/cart/cart.component';
 
 @Component({
   selector: 'app-offers',
   standalone: true,
-  imports: [CardComponent],
+  imports: [CardComponent, CartComponent, CartComponent],
   templateUrl: './offers.component.html',
   styleUrl: './offers.component.css'
 })
