@@ -13,3 +13,7 @@
 .pb25px {
   padding-bottom: 25px;
 }
+
+.pointer {
+  cursor: pointer;
+}
