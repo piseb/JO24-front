@@ -1,0 +1,15 @@
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  /* flex-direction: column; */
+}
+
+.cart-table {
+  min-width: 50%;
+}
+
+.pb25px {
+  padding-bottom: 25px;
+}

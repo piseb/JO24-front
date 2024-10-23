@@ -15,7 +15,7 @@ export class NavigationService {
         url: "events"
       },
       {
-        nom: "Les Offres",
+        nom: "Offres et Panier",
         url: "offers"
       },
     ];

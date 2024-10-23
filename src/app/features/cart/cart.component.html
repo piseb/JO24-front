@@ -1,0 +1,59 @@
+@if (isDataSource() ) {
+<div class="flexCenter">
+  <button mat-raised-button (click)="reset()">Vider le panier</button>
+</div>
+
+<div class="flexCenter pb25px">
+  <table mat-table [dataSource]="cart$" class="mat-elevation-z8 cart-table">
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Offre </th>
+      <td mat-cell *matCellDef="let offer"> {{offer.title}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- Count Column -->
+    <ng-container matColumnDef="count">
+      <th mat-header-cell *matHeaderCellDef> Quantité </th>
+      <td mat-cell *matCellDef="let offer"> {{offer.count}} </td>
+      <td mat-footer-cell *matFooterCellDef> Total : </td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Prix Unitaire </th>
+      <td mat-cell *matCellDef="let offer"> {{offer.price | currency: 'EUR'}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- Price * Quantity Column  -->
+    <ng-container matColumnDef="priceQte">
+      <th mat-header-cell *matHeaderCellDef> Prix</th>
+      <td mat-cell *matCellDef="let offer"> {{offer.price * offer.count | currency: 'EUR'}} </td>
+      <td mat-footer-cell *matFooterCellDef> {{getTotalPriceOffers() | currency: 'EUR'}} </td>
+    </ng-container>
+
+    <!-- Price * Quantity Column  -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Editer</th>
+      <td mat-cell *matCellDef="let offer">
+        <mat-icon aria-hidden="false" aria-label="close page burger" fontIcon="add" (click)="add(offer)"
+          (keydown)="add(offer)"></mat-icon>
+        <mat-icon aria-hidden="false" aria-label="close page burger" fontIcon="remove" (click)="remove(offer)"
+          (keydown)="remove(offer)"></mat-icon>
+        <mat-icon aria-hidden="false" aria-label="close page burger" fontIcon="delete" (click)="delete(offer)"
+          (keydown)="remove(offer)"></mat-icon>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+</div>
+} @else {
+<div class="flexCenter">
+  Votre panier est vide.
+</div>
+}
