@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { LoginPageComponent } from './login-page.component';
 
 describe('LoginPageComponent', () => {
@@ -7,10 +8,14 @@ describe('LoginPageComponent', () => {
   let fixture: ComponentFixture<LoginPageComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient(),
+        provideAnimations()
+      ],
       imports: [LoginPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LoginPageComponent);
     component = fixture.componentInstance;
