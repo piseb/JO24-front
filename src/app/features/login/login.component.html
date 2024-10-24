@@ -1,0 +1,26 @@
+<form class="container" (ngSubmit)="login()">
+  <mat-form-field>
+    <mat-label>Votre identifant</mat-label>
+    <input matInput [formControl]="username" (blur)="updateErrorMessageUsername()" required />
+    @if (username.invalid) {
+    <mat-error>{{errorMessageUsername()}}</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Votre mot de passe</mat-label>
+    <input matInput [formControl]="password" (blur)="updateErrorMessagePassword()" required type="password"
+      autocomplete />
+    @if (password.invalid) {
+    <mat-error>{{errorMessagePassword()}}</mat-error>
+    }
+  </mat-form-field>
+
+  @if (invalidCredentials) {
+  <div class="credentials-invalid">
+    <mat-error>Identifiant et/ou mot de passe incorrect.</mat-error>
+  </div>
+  }
+
+  <button type="submit" mat-flat-button class="button-submit">Envoyer</button>
+</form>

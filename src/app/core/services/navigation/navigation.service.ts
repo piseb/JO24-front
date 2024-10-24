@@ -18,6 +18,14 @@ export class NavigationService {
         nom: "Offres et Panier",
         url: "offers"
       },
+      {
+        nom: "Se connecter",
+        url: "login"
+      },
+      {
+        nom: "Déconnexion",
+        url: "logout"
+      },
     ];
   }
 }
